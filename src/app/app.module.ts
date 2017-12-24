@@ -1,3 +1,4 @@
+import { MangaService } from './services/manga.service';
 import { UrlConfigurationService } from 'app/services/url.configuration.service';
 import { AnimeService } from './services/anime.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -101,6 +102,7 @@ import { PageService } from 'app/services/page.service';
     AnimeService,
     RequestService,
     PageService,
+    MangaService,
     UrlConfigurationService
   ],
   bootstrap: [ AppComponent ]
