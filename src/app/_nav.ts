@@ -32,93 +32,23 @@ export const navigation = [
         icon: 'icon-doc',
       }      
     ]
+  },
+  {
+    name: 'Manga',
+    icon: 'icon-ghost',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/warehouse/manga/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/warehouse/manga/all',        
+        icon: 'icon-doc',
+      }      
+    ]
   }
-  // {
-  //   name: 'Películas',
-  //   icon: 'icon-film',
-  //   url: '',
-  //   children: [
-  //     {
-  //       name: 'Registrar',
-  //       url: '/warehouse/provider/create',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Editar',
-  //       url: '/warehouse/provider/edit',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Consulta General',
-  //       url: '/warehouse/provider/all',        
-  //       icon: 'icon-note',
-  //     }      
-  //   ]
-  // },
-  // {
-  //   name: 'Series',
-  //   icon: 'icon-globe',
-  //   url: '',
-  //   children: [
-  //     {
-  //       name: 'Registrar',
-  //       url: '/warehouse/provider/create',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Editar',
-  //       url: '/warehouse/provider/edit',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Consulta General',
-  //       url: '/warehouse/provider/all',        
-  //       icon: 'icon-note',
-  //     }      
-  //   ]
-  // },
-  // {
-  //   name: 'Manga',
-  //   icon: 'icon-book-open',
-  //   url: '',
-  //   children: [
-  //     {
-  //       name: 'Registrar',
-  //       url: '/warehouse/provider/create',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Editar',
-  //       url: '/warehouse/provider/edit',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Consulta General',
-  //       url: '/warehouse/provider/all',        
-  //       icon: 'icon-note',
-  //     }      
-  //   ]
-  // },
-  // {
-  //   name: 'Proveedores',
-  //   icon: 'icon-globe',
-  //   url: '',
-  //   children: [
-  //     {
-  //       name: 'Registrar',
-  //       url: '/warehouse/provider/create',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Editar',
-  //       url: '/warehouse/provider/edit',        
-  //       icon: 'icon-note',
-  //     },
-  //     {
-  //       name: 'Consulta General',
-  //       url: '/warehouse/provider/all',        
-  //       icon: 'icon-note',
-  //     }      
-  //   ]
-  // }
+  
 ];
