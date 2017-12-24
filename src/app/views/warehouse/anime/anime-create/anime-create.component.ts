@@ -40,7 +40,7 @@ export class AnimeCreateComponent implements OnInit {
   clearInputs() {
     this.name.nativeElement.value = ''
     this.image.nativeElement.value = ''
-    this.quality.nativeElement.value = 0
+    this.quality.nativeElement.value = undefined
   }
 
 }
