@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: 'anime',
     loadChildren: './anime/anime.module#AnimeModule'
+  },
+  {
+    path: 'page',
+    loadChildren: './page/page.module#PageModule'
   }
   // ,
   // {
