@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'page',
     loadChildren: './page/page.module#PageModule'
+  },
+  {
+    path: 'manga',
+    loadChildren: './manga/manga.module#MangaModule'
   }
   // ,
   // {
