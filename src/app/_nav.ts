@@ -15,7 +15,24 @@ export const navigation = [
         icon: 'icon-doc',
       }      
     ]
-  }// ,
+  },
+  {
+    name: 'Páginas',
+    icon: 'icon-login',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/warehouse/page/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/warehouse/page/all',        
+        icon: 'icon-doc',
+      }      
+    ]
+  }
   // {
   //   name: 'Películas',
   //   icon: 'icon-film',
