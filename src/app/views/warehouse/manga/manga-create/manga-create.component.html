@@ -1,3 +1,50 @@
-<p>
-  manga-create works!
-</p>
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 offset-md-1">
+        <div class="card">
+          <form [formGroup]="form" (ngSubmit)="onSubmitManga()">              
+            <div class="card-header">
+              <strong>Mangas</strong>
+              <small>Formulario</small>
+            </div>
+            <div class="row card-body">
+              <div class="col-sm-12 col-md-7">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="name">Nombre</label>
+                      <input formControlName="name" type="text" class="form-control" placeholder="Ingrese el nombre de un manga...">
+                      <ul *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="name.errors.required"> Debes ingresar un <strong>nombre</strong> </li>
+                      </ul>
+                      <label for="quality">Calidad</label>
+                      <input formControlName="quality" type="number" class="form-control" min="00" max="10" placeholder="Ingrese la calidad del manga...">
+                      <ul *ngIf="quality.invalid && (quality.dirty || quality.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="quality.errors.required"> Debes ingresar una <strong>calidad</strong> </li>
+                      </ul>
+                      <label for="image">Imagen</label>
+                      <input formControlName="image" type="text" class="form-control" placeholder="Ingrese la dirección de la imagen...">
+                      <ul *ngIf="image.invalid && (image.dirty || image.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="image.errors.required"> Debes ingresar una <strong>imagen</strong> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div><!--/.row-->
+              </div>
+              <div class="col-sm-12 col-md-3">
+                <div *ngIf="name.value" class="card" style="height: 18rem; width: 12rem">
+                  <img class="card-img-top" [src]="image.value" *ngIf="image.value" alt="Página">
+                  <div class="card-body">
+                    <h4 class="card-title">{{ name.value }}</h4>
+                  </div>
+                </div>
+              </div>            
+            </div>
+            <div class="card-footer text-left">
+              <button [disabled]="form.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>
+            </div>  
+          </form>
+        </div>
+      </div><!--/.col-->
+    </div>
+  </div>

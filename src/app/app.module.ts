@@ -72,6 +72,7 @@ import { RequestService } from 'app/services/request.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageService } from 'app/services/page.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -81,6 +82,8 @@ import { PageService } from 'app/services/page.service';
     TabsModule.forRoot(),
     HttpModule,
     ChartsModule,
+    ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       //toastComponent: ToastNoAnimation

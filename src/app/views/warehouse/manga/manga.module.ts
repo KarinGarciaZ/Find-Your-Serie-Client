@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { MangaCreateComponent } from 'app/views/warehouse/manga/manga-create/manga-create.component';
@@ -14,7 +14,8 @@ import { MangaRoutingModule } from './manga.routing';
     MangaRoutingModule,
     ChartsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     MangaComponent,
