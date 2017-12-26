@@ -1,4 +1,4 @@
-export interface Page {
+export interface Serie {
   name: string,
   image: string,
   quality: number
