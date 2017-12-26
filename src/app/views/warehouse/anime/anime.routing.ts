@@ -1,24 +1,24 @@
-import { AnimeComponent } from './anime.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AnimeCreateComponent } from 'app/views/warehouse/anime/anime-create/anime-create.component';
 import { AnimeEditComponent } from 'app/views/warehouse/anime/anime-edit/anime-edit.component';
-import { AnimesComponent } from './animes/animes.component';
+import { AnimesComponent } from 'app/views/warehouse/anime/animes/animes.component';
+import { AnimeComponent } from 'app/views/warehouse/anime/anime.component';
 
 const routes: Routes = [
   {
     path: 'create',
     component: AnimeCreateComponent,
     data: {
-      title: 'Registrar anime'
+      title: 'Registrar Anime'
     }
   },
   {
     path: 'edit',
     component: AnimeEditComponent,
     data: {
-      title: 'Editar anime'
+      title: 'Editar Anime'
     }
   },
   {

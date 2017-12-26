@@ -66,6 +66,22 @@ export const navigation = [
         icon: 'icon-doc',
       }      
     ]
-  }
-  
+  },
+  {
+    name: 'Películas',
+    icon: 'icon-film',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/warehouse/movie/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/warehouse/movie/all',        
+        icon: 'icon-doc',
+      }      
+    ]
+  }  
 ];

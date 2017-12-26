@@ -74,6 +74,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageService } from 'app/services/page.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MovieService } from 'app/services/movie.service';
 
 @NgModule({
   imports: [
@@ -108,6 +109,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     PageService,
     MangaService,
     SerieService,
+    MovieService,
     UrlConfigurationService
   ],
   bootstrap: [ AppComponent ]
