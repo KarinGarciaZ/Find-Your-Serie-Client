@@ -100,5 +100,39 @@ export const navigation = [
         icon: 'icon-doc',
       }      
     ]
-  }  
+  },
+  {
+    name: 'Series*',
+    icon: 'icon-film',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/items/serie-page/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/items/serie-page/all',        
+        icon: 'icon-doc',
+      }      
+    ]
+  },
+  {
+    name: 'Películas*',
+    icon: 'icon-film',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/items/movie-page/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/items/movie-page/all',        
+        icon: 'icon-doc',
+      }      
+    ]
+  }    
 ];
