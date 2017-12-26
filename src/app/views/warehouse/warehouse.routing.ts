@@ -13,24 +13,11 @@ const routes: Routes = [
   {
     path: 'manga',
     loadChildren: './manga/manga.module#MangaModule'
+  },
+  {
+    path: 'serie',
+    loadChildren: './serie/serie.module#SerieModule'
   }
-  // ,
-  // {
-  //   path: 'manga',
-  //   loadChildren: './manga/manga.module#MangaModule'
-  // },
-  // {
-  //   path: 'serie',
-  //   loadChildren: './serie/serie.module#SerieModule'
-  // },
-  // {
-  //   path: 'movie',
-  //   loadChildren: './movie/movie.module#MovieModule'
-  // },
-  // {
-  //   path: 'page',
-  //   loadChildren: './page/page.module#PageModule'
-  // }
 ];
 
 @NgModule({

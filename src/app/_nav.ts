@@ -1,22 +1,5 @@
 export const navigation = [
   {
-    name: 'Anime',
-    icon: 'icon-magic-wand',
-    url: '',
-    children: [
-      {
-        name: 'Registrar',
-        url: '/warehouse/anime/create',        
-        icon: 'icon-note',
-      },
-      {
-        name: 'Consulta General',
-        url: '/warehouse/anime/all',        
-        icon: 'icon-doc',
-      }      
-    ]
-  },
-  {
     name: 'Páginas',
     icon: 'icon-login',
     url: '',
@@ -34,6 +17,23 @@ export const navigation = [
     ]
   },
   {
+    name: 'Anime',
+    icon: 'icon-magic-wand',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/warehouse/anime/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/warehouse/anime/all',        
+        icon: 'icon-doc',
+      }      
+    ]
+  },
+  {
     name: 'Manga',
     icon: 'icon-ghost',
     url: '',
@@ -46,6 +46,23 @@ export const navigation = [
       {
         name: 'Consulta General',
         url: '/warehouse/manga/all',        
+        icon: 'icon-doc',
+      }      
+    ]
+  },
+  {
+    name: 'Series',
+    icon: 'icon-film',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/warehouse/serie/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/warehouse/serie/all',        
         icon: 'icon-doc',
       }      
     ]

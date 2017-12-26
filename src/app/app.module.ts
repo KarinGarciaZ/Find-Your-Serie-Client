@@ -1,3 +1,4 @@
+import { SerieService } from './services/serie.service';
 import { MangaService } from './services/manga.service';
 import { UrlConfigurationService } from 'app/services/url.configuration.service';
 import { AnimeService } from './services/anime.service';
@@ -106,6 +107,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RequestService,
     PageService,
     MangaService,
+    SerieService,
     UrlConfigurationService
   ],
   bootstrap: [ AppComponent ]
