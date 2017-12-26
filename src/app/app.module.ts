@@ -1,3 +1,4 @@
+import { AnimePageService } from 'app/services/anime-page.service';
 import { SerieService } from './services/serie.service';
 import { MangaService } from './services/manga.service';
 import { UrlConfigurationService } from 'app/services/url.configuration.service';
@@ -110,6 +111,7 @@ import { MovieService } from 'app/services/movie.service';
     MangaService,
     SerieService,
     MovieService,
+    AnimePageService,
     UrlConfigurationService
   ],
   bootstrap: [ AppComponent ]

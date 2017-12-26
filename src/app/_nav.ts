@@ -86,7 +86,7 @@ export const navigation = [
   },
   {
     name: 'Anime*',
-    icon: 'icon-film',
+    icon: 'icon-magic-wand',
     url: '',
     children: [
       {
