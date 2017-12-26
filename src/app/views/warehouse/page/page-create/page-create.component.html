@@ -32,10 +32,10 @@
                     <label for="type">Tipo</label>
                     <select ngModel name="type" #typeSelect #type="ngModel" type="text" class="form-control" required>
                       <option value=""></option>
-                      <option value="Anime">Anime</option>
-                      <option value="Manga">Manga</option>
-                      <option value="Movie">Película</option>
-                      <option value="Serie">Serie</option>
+                      <option value="1">Anime</option>
+                      <option value="2">Manga</option>
+                      <option value="3">Película</option>
+                      <option value="4">Serie</option>
                     </select>
                     <ul *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="type.errors.required"> Debes ingresar una <strong>Tipo</strong> </li>

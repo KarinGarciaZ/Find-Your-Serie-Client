@@ -11,7 +11,7 @@ export class PageCreateComponent implements OnInit {
   @ViewChild('nameInput') name: any
   @ViewChild('qualityInput') quality: any
   @ViewChild('urlInput') url: any
-  @ViewChild('typeInput') type: any
+  @ViewChild('typeSelect') type: any
   @ViewChild('imageInput') image: any
 
   constructor(private pageService: PageService, private toastr: ToastrService) { }
@@ -41,8 +41,8 @@ export class PageCreateComponent implements OnInit {
   clearInputs() {
     this.name.nativeElement.value = ''    
     this.url.nativeElement.value = ''
-    this.type.nativeElement.value = ''
     this.image.nativeElement.value = ''
+    this.type.nativeElement.value = undefined  
     this.quality.nativeElement.value = undefined
   }
 
