@@ -83,5 +83,22 @@ export const navigation = [
         icon: 'icon-doc',
       }      
     ]
+  },
+  {
+    name: 'Anime*',
+    icon: 'icon-film',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/items/anime-page/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/items/anime-page/all',        
+        icon: 'icon-doc',
+      }      
+    ]
   }  
 ];

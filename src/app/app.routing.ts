@@ -27,6 +27,10 @@ export const routes: Routes = [
       {
         path: 'warehouse',
         loadChildren: './views/warehouse/warehouse.module#WarehouseModule'
+      },
+      {
+        path: 'items',
+        loadChildren: './views/items/items.module#ItemsModule'
       }
     ]
   }
