@@ -1,3 +1,70 @@
-<p>
-  page-edit works!
-</p>
+<div class="animated fadeIn" *ngIf="page">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 offset-md-1">      
+        <div class="card">
+          <form #formPage="ngForm" (ngSubmit)="onSubmitPage(); formPage.reset()">              
+            <div class="card-header">
+              <strong>Páginas</strong>
+              <small>Formulario</small>
+            </div>
+            <div class="row card-body">
+              <div class="col-sm-12 col-md-7">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="name">Nombre</label>
+                      <input [(ngModel)]="page.name" name="name" #nameInput #name="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de un pagina..." required minlength="3">
+                      <ul *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="name.errors.required"> Debes ingresar un <strong>nombre</strong> </li>
+                        <li *ngIf="name.errors.minlength"> Debes ingresar un nombre como mínimo de <strong> {{ name.errors.minlength.requiredLength }} </strong> caracteres </li>
+                      </ul>
+                      <label for="quality">Calidad</label>
+                      <input [(ngModel)]="page.quality" name="quality" #qualityInput #quality="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad del pagina..." required min="00" max="10">
+                      <ul *ngIf="quality.invalid && (quality.dirty || quality.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="quality.errors.required"> Debes ingresar una <strong>calidad</strong> </li>
+                      </ul>                    
+                      <label for="url">Url</label>
+                      <input [(ngModel)]="page.url" name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese la dirección de la url..." required minlength="5">
+                      <ul *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="url.errors.minlength"> Debes ingresar una dirección como mínimo de <strong> {{ url.errors.minlength.requiredLength }} </strong> caracteres </li>
+                        <li *ngIf="url.errors.required"> Debes ingresar una <strong>url</strong> </li>
+                      </ul>
+                      <label for="type">Tipo</label>
+                      <select [(ngModel)]="page.type" name="type" #typeSelect #type="ngModel" type="text" class="form-control" required>
+                        <option value=""></option>
+                        <option value="Anime">Anime</option>
+                        <option value="Manga">Manga</option>
+                        <option value="Movie">Película</option>
+                        <option value="Serie">Serie</option>
+                      </select>
+                      <ul *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="type.errors.required"> Debes ingresar una <strong>Tipo</strong> </li>
+                      </ul>
+                      <label for="image">Imagen</label>
+                      <input [(ngModel)]="page.image" name="image" #imageInput #image="ngModel" type="text" class="form-control" placeholder="Ingrese la dirección de la imagen..." required minlength="5">
+                      <ul *ngIf="image.invalid && (image.dirty || image.touched)" class="alert alert-danger" style="margin-top: .5em">
+                        <li *ngIf="image.errors.minlength"> Debes ingresar una dirección como mínimo de <strong> {{ image.errors.minlength.requiredLength }} </strong> caracteres </li>
+                        <li *ngIf="image.errors.required"> Debes ingresar una <strong>imagen</strong> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div><!--/.row-->
+              </div>
+              <div class="col-sm-12 col-md-3">
+                <div *ngIf="name.value" class="card" style="height: 18rem; width: 12rem">
+                  <img class="card-img-top" [src]="image.value" *ngIf="image.value" alt="Página">
+                  <div class="card-body">
+                    <h4 class="card-title">{{ name.value }}</h4>
+                  </div>
+                </div>
+              </div>            
+            </div>
+            <div class="card-footer text-left">
+              <button [disabled]="formPage.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>
+            </div>
+  
+          </form>
+        </div>
+      </div><!--/.col-->
+    </div>
+  </div>
