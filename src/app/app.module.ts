@@ -1,3 +1,4 @@
+import { MangaPageService } from './services/manga-page.service';
 import { MoviePageService } from 'app/services/movie-page.service';
 import { SeriePageService } from './services/serie-page.service';
 import { AnimePageService } from 'app/services/anime-page.service';
@@ -115,6 +116,7 @@ import { MovieService } from 'app/services/movie.service';
     MovieService,
     AnimePageService,
     SeriePageService,
+    MangaPageService,
     MoviePageService,
     UrlConfigurationService
   ],
