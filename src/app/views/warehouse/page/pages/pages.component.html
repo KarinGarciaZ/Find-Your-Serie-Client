@@ -1,3 +1,48 @@
-<p>
-  pages works!
-</p>
+<div class="col-md-12" *ngIf="pages">
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Consulta General de Páginas
+    </div>
+    <div class="card-body">
+      <p>
+        <input #query (keyup)="filter(query.value)" class="form-control" type="text" placeholder="Buscar página...">
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Url</th>
+            <th>Calidad</th>
+            <th>Tipo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let page of filtered">
+            <td>{{ page.id }}</td>
+            <td>{{ page.name }}</td>
+            <td>{{ page.url }}</td>
+            <td>{{ page.quality }}</td>
+            <td>{{ page.type }}</td>
+            <td>              
+              <a class="btn btn-outline-primary" [routerLink]="['../edit/', page.id]">Editar</a>
+              <a class="btn btn-outline-danger">Borrar</a>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <!-- <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> -->
+    </div>
+  </div>
+</div>
