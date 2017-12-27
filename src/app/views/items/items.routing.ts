@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'movie-page',
     loadChildren: './movie_page/movie-page.module#MoviePageModule'
+  },
+  {
+    path: 'manga-page',
+    loadChildren: './manga_page/manga-page.module#MangaPageModule'
   }
 ];
 

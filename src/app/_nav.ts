@@ -134,5 +134,22 @@ export const navigation = [
         icon: 'icon-doc',
       }      
     ]
+  },
+  {
+    name: 'Manga*',
+    icon: 'icon-ghost',
+    url: '',
+    children: [
+      {
+        name: 'Registrar',
+        url: '/items/manga-page/create',        
+        icon: 'icon-note',
+      },
+      {
+        name: 'Consulta General',
+        url: '/items/manga-page/all',        
+        icon: 'icon-doc',
+      }      
+    ]
   }    
 ];
