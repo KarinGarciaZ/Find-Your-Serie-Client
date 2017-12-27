@@ -8,9 +8,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./serie-create.component.scss']
 })
 export class SerieCreateComponent implements OnInit {
-  @ViewChild('nameInput') name: any
-  @ViewChild('qualityInput') quality: any
-  @ViewChild('imageInput') image: any
 
   constructor( private serieService: SerieService, private toastr: ToastrService ) { }
 

@@ -15,10 +15,6 @@ export class SeriePageCreateComponent implements OnInit {
   filtered = []
   lookImageSerie: string  
   lookImagePage: string
-  @ViewChild('urlInput') url: any;
-  @ViewChild('capsInput') caps: any;
-  @ViewChild('serieInput') serie: any;
-  @ViewChild('pageInput') page: any;
 
   constructor(
     private pageService: PageService,
@@ -28,7 +24,7 @@ export class SeriePageCreateComponent implements OnInit {
   ) { 
     this.pageService.all()
       .subscribe( pages => {        
-        this.pages = pages.filter( page => page.type == 4)
+        this.pages = pages.filter( page => page.type == "Serie")
       })
 
     this.serieService.all()
@@ -36,7 +32,7 @@ export class SeriePageCreateComponent implements OnInit {
   }
 
   filter( serie ) {
-    this.filtered = this.series.filter( filtered => filtered.name.includes( serie ))
+    this.filtered = this.series.filter( filtered => filtered.name.toLowerCase().includes( serie.toLowerCase() ))
   }
 
   lookImageSeri( id ) {

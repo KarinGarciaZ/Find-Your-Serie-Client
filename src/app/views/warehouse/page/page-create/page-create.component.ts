@@ -8,11 +8,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./page-create.component.scss']
 })
 export class PageCreateComponent implements OnInit {
-  @ViewChild('nameInput') name: any
-  @ViewChild('qualityInput') quality: any
-  @ViewChild('urlInput') url: any
-  @ViewChild('typeSelect') type: any
-  @ViewChild('imageInput') image: any
 
   constructor(private pageService: PageService, private toastr: ToastrService) { }
 

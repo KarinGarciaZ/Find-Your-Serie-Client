@@ -24,7 +24,7 @@ export class AnimePageCreateComponent implements OnInit {
   ) {
     this.pageService.all()
       .subscribe( pages => {        
-        this.pages = pages.filter( page => page.type == 1)
+        this.pages = pages.filter( page => page.type == "Anime")
       })
 
     this.animeService.all()
@@ -32,7 +32,7 @@ export class AnimePageCreateComponent implements OnInit {
   }
 
   filter( anime ) {
-    this.filtered = this.animes.filter( filtered => filtered.name.includes( anime ))
+    this.filtered = this.animes.filter( filtered => filtered.name.toLowerCase().includes( anime.toLowerCase() ))
   }
 
   lookImageAnim( id ) {

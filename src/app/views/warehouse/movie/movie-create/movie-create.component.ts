@@ -8,9 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./movie-create.component.scss']
 })
 export class MovieCreateComponent implements OnInit {
-  @ViewChild('nameInput') name: any;
-  @ViewChild('imageInput') image: any;
-  @ViewChild('qualityInput') quality: any;
+  
   constructor(private movieService: MovieService, private toastr: ToastrService) { }
 
   ngOnInit() {

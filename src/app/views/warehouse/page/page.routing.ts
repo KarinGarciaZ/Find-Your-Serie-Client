@@ -14,7 +14,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: PageEditComponent,
     data: {
       title: 'Editar Página'

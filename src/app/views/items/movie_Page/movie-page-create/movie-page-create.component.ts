@@ -15,10 +15,6 @@ export class MoviePageCreateComponent implements OnInit {
   filtered = []
   lookImageMovie: string  
   lookImagePage: string
-  @ViewChild('urlInput') url: any;
-  @ViewChild('capsInput') caps: any;
-  @ViewChild('movieInput') movie: any;
-  @ViewChild('pageInput') page: any;
 
   constructor(
     private pageService: PageService,
@@ -28,7 +24,7 @@ export class MoviePageCreateComponent implements OnInit {
   ) { 
     this.pageService.all()
       .subscribe( pages => {        
-        this.pages = pages.filter( page => page.type == 3)
+        this.pages = pages.filter( page => page.type == "Movie")
       })
 
     this.movieService.all()
@@ -36,7 +32,7 @@ export class MoviePageCreateComponent implements OnInit {
   }
 
   filter( movie ) {
-    this.filtered = this.movies.filter( filtered => filtered.name.includes( movie ))
+    this.filtered = this.movies.filter( filtered => filtered.name.toLowerCase().includes( movie.toLowerCase() ))
   }
 
   lookImageMovi( id ) {

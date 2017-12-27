@@ -8,9 +8,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./anime-create.component.scss']
 })
 export class AnimeCreateComponent implements OnInit {
-  @ViewChild('nameInput') name: any;
-  @ViewChild('imageInput') image: any;
-  @ViewChild('qualityInput') quality: any;
 
   constructor(private animeService: AnimeService, private toastr: ToastrService) { }
 

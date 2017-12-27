@@ -24,7 +24,7 @@ export class MangaPageCreateComponent implements OnInit {
   ) {
     this.pageService.all()
       .subscribe( pages => {        
-        this.pages = pages.filter( page => page.type == 1)
+        this.pages = pages.filter( page => page.type == "Manga")
       })
 
     this.mangaService.all()
@@ -32,7 +32,7 @@ export class MangaPageCreateComponent implements OnInit {
    }
 
    filter( manga ) {
-    this.filtered = this.mangas.filter( filtered => filtered.name.includes( manga ))
+    this.filtered = this.mangas.filter( filtered => filtered.name.toLowerCase().includes( manga.toLowerCase() ))
   }
 
   lookImageMang( id ) {
