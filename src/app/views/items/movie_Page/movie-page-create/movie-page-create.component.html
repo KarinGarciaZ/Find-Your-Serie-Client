@@ -1,7 +1,7 @@
 <div class="animated fadeIn">
   <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1">
-      <div class="card">
+      <div class="card">        
         <form #formMovie="ngForm" (ngSubmit)="onSubmitMovie(formMovie.value)">              
           <div class="card-header">
             <strong>Películas</strong>
@@ -9,25 +9,34 @@
           </div>
           <div class="row card-body">
             <div class="col-sm-12 col-md-7">
+              <p>
+                <input #query (keyup)="filter(query.value)" class="form-control" type="text" placeholder="Buscar película...">
+              </p>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
 
                     <label for="page">Página</label>
-                    <select ngModel #page="ngModel" #pageInput name="pageId" id="page" type="number" class="form-control" required>
+                    <select ngModel #page="ngModel" #pageInput name="pageId" (click)="(pageInput.value)? lookImagePag(pageInput.value): nothing()" id="page" type="number" class="form-control" required>
                       <option value=""></option>
                       <option *ngFor="let p of pages" [value]="p.id">
                         {{ p.name }}
                       </option>
                     </select>
+                    <ul *ngIf="page.invalid && (page.dirty || page.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="page.errors.required"> Debes ingresar una <strong>página.</strong> </li>                      
+                    </ul>
 
                     <label for="movie">Película</label>
-                    <select ngModel #movie="ngModel" #movieInput name="movieId" id="movie" type="number" class="form-control" required>
+                    <select ngModel #movie="ngModel" #movieInput name="movieId" (click)="(movieInput.value)? lookImageMovi(movieInput.value): nothing()" id="movie" type="number" class="form-control" required>
                       <option value=""></option>
-                      <option *ngFor="let movie of movies" [value]="movie.id">
+                      <option *ngFor="let movie of filtered" [value]="movie.id">
                         {{ movie.name }}
                       </option>
                     </select>
+                    <ul *ngIf="movie.invalid && (movie.dirty || movie.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="movie.errors.required"> Debes ingresar una <strong>película.</strong> </li>                      
+                    </ul>
 
                     <label for="url">Url</label>
                     <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de un anime..." required url>
@@ -44,19 +53,18 @@
                 </div>
               </div><!--/.row-->
             </div>
-            <!-- <div class="col-sm-12 col-md-3">
-              <div *ngIf="name.value" class="card" style="height: 18rem; width: 12rem">
-                <img class="card-img-top" [src]="image.value" *ngIf="image.value" alt="Página">
-                <div class="card-body">
-                  <h4 class="card-title">{{ name.value }}</h4>
-                </div>
+            <div class="col-sm-12 col-md-3" *ngIf="(lookImageMovie && lookImagePage)">              
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImageMovie" alt="Página">                
               </div>
-            </div>             -->
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImagePage" alt="Página">                
+              </div>
+            </div>            
           </div>
           <div class="card-footer text-left">
             <button [disabled]="formMovie.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>
           </div>
-
         </form>
       </div>
     </div><!--/.col-->

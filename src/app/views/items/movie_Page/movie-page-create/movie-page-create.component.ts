@@ -12,6 +12,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class MoviePageCreateComponent implements OnInit {
   pages = []
   movies = []
+  filtered = []
+  lookImageMovie: string  
+  lookImagePage: string
   @ViewChild('urlInput') url: any;
   @ViewChild('capsInput') caps: any;
   @ViewChild('movieInput') movie: any;
@@ -20,7 +23,7 @@ export class MoviePageCreateComponent implements OnInit {
   constructor(
     private pageService: PageService,
     private movieService: MovieService,
-    private moviePageService: MoviePageService
+    private moviePageService: MoviePageService,
     private toastr: ToastrService
   ) { 
     this.pageService.all()
@@ -31,6 +34,30 @@ export class MoviePageCreateComponent implements OnInit {
     this.movieService.all()
     .subscribe( movies => this.movies = movies)
   }
+
+  filter( movie ) {
+    this.filtered = this.movies.filter( filtered => filtered.name.includes( movie ))
+  }
+
+  lookImageMovi( id ) {
+    if ( id )
+      this.filtered.forEach(element => {
+        if ( element.id == id ) {
+          this.lookImageMovie = element.image;
+        }      
+      });
+  }
+
+  lookImagePag( id ) {
+    if ( id )
+      this.pages.forEach(element => {
+        if ( element.id == id ) {
+          this.lookImagePage = element.image;
+        }      
+      });
+  }
+
+  nothing() { }
 
   ngOnInit() {
   }
