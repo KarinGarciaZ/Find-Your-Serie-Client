@@ -20,10 +20,8 @@ export class AnimeCreateComponent implements OnInit {
   onSubmitAnime( anime ) {
     this.animeService.create( anime )
       .subscribe( res => {
-        if ( res ) {
-          this.showSuccess()
-          this.clearInputs()          
-        }
+        if ( res )
+          this.showSuccess()    
       },
       data =>  this.showError(data.error.message),
       () => console.log('Completed'))    
@@ -36,11 +34,4 @@ export class AnimeCreateComponent implements OnInit {
   showError( error ) {
     this.toastr.error(error, '¡Ha numa!')
   }
-
-  clearInputs() {
-    this.name.nativeElement.value = ''
-    this.image.nativeElement.value = ''
-    this.quality.nativeElement.value = undefined
-  }
-
 }

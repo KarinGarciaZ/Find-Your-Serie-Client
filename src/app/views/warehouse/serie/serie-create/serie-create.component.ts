@@ -19,10 +19,7 @@ export class SerieCreateComponent implements OnInit {
 
   onSubmitSerie( serie ) {
     this.serieService.create( serie )
-      .subscribe( res => {
-        this.showSuccess()
-        this.clearInputs()
-      },
+      .subscribe( res => this.showSuccess(),
       err => this.showError(err),
       () => console.log('Done.')
     )
@@ -35,11 +32,4 @@ export class SerieCreateComponent implements OnInit {
   showError( err ) {
     this.toastr.error( err.error.message, '¡Chanfle!' )
   }
-
-  clearInputs() {
-    this.name.nativeElement.value = ''  
-    this.image.nativeElement.value = ''
-    this.quality.nativeElement.value = undefined
-  }
-
 }

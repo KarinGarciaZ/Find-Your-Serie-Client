@@ -1,33 +1,42 @@
-<div class="animated fadeIn">
+<div class="animated fadeIn" *ngIf="series && pages">
   <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1">
       <div class="card">
-        <form #formSerie="ngForm" (ngSubmit)="onSubmitSerie(formSerie.value)">              
+        <form #formSerie="ngForm" (ngSubmit)="onSubmitSerie(formSerie.value); formSerie.reset()">              
           <div class="card-header">
             <strong>Series</strong>
             <small>Formulario</small>
           </div>
           <div class="row card-body">
             <div class="col-sm-12 col-md-7">
+              <p>
+                <input #query (keyup)="filter(query.value)" class="form-control" type="text" placeholder="Buscar serie...">
+              </p>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
 
                     <label for="page">Página</label>
-                    <select ngModel #page="ngModel" #pageInput name="pageId" id="page" type="number" class="form-control" required>
+                    <select ngModel #page="ngModel" #pageInput name="pageId" (click)="(pageInput.value)? lookImagePag(pageInput.value): nothing()" id="page" type="number" class="form-control" required>
                       <option value=""></option>
                       <option *ngFor="let p of pages" [value]="p.id">
                         {{ p.name }}
                       </option>
                     </select>
+                    <ul *ngIf="page.invalid && (page.dirty || page.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="page.errors.required"> Debes ingresar una <strong>página.</strong> </li>                      
+                    </ul>
 
                     <label for="serie">Serie</label>
-                    <select ngModel #serie="ngModel" #serieInput name="serieId" id="serie" type="number" class="form-control" required>
+                    <select ngModel #serie="ngModel" #serieInput name="serieId" (click)="(serieInput.value)? lookImageSeri(serieInput.value): nothing()" id="serie" type="number" class="form-control" required>
                       <option value=""></option>
-                      <option *ngFor="let a of series" [value]="a.id">
-                        {{ a.name }}
+                      <option *ngFor="let f of filtered" [value]="f.id">
+                        {{ f.name }}
                       </option>
                     </select>
+                    <ul *ngIf="serie.invalid && (serie.dirty || serie.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="serie.errors.required"> Debes ingresar una <strong>película.</strong> </li>                      
+                    </ul>
 
                     <label for="url">Url</label>
                     <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de un serie..." required url>
@@ -44,14 +53,14 @@
                 </div>
               </div><!--/.row-->
             </div>
-            <!-- <div class="col-sm-12 col-md-3">
-              <div *ngIf="name.value" class="card" style="height: 18rem; width: 12rem">
-                <img class="card-img-top" [src]="image.value" *ngIf="image.value" alt="Página">
-                <div class="card-body">
-                  <h4 class="card-title">{{ name.value }}</h4>
-                </div>
+            <div class="col-sm-12 col-md-3" *ngIf="(lookImageSerie && lookImagePage)">              
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImageSerie" alt="Página">                
               </div>
-            </div>             -->
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImagePage" alt="Página">                
+              </div>
+            </div> 
           </div>
           <div class="card-footer text-left">
             <button [disabled]="formSerie.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>

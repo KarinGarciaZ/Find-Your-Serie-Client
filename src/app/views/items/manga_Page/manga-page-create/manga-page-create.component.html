@@ -1,3 +1,72 @@
-<p>
-  manga-page-create works!
-</p>
+<div class="animated fadeIn" *ngIf="mangas && pages">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1">
+      <div class="card">
+        <form #formManga="ngForm" (ngSubmit)="onSubmitManga(formManga.value); formManga.reset()">              
+          <div class="card-header">
+            <strong>Mangas</strong>
+            <small>Formulario</small>
+          </div>
+          <div class="row card-body">
+            <div class="col-sm-12 col-md-7">
+              <p>
+                <input #query (keyup)="filter(query.value)" class="form-control" type="text" placeholder="Buscar manga...">
+              </p>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+
+                    <label for="page">Página</label>
+                    <select ngModel #page="ngModel" #pageInput name="pageId" (click)="(pageInput.value)? lookImagePag(pageInput.value): nothing()" id="page" type="number" class="form-control" required>
+                      <option value=""></option>
+                      <option *ngFor="let p of pages" [value]="p.id">
+                        {{ p.name }}
+                      </option>
+                    </select>
+                    <ul *ngIf="page.invalid && (page.dirty || page.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="page.errors.required"> Debes ingresar una  <strong>pagina.</strong> </li>                      
+                    </ul>
+
+                    <label for="manga">Manga</label>
+                    <select ngModel #manga="ngModel" #mangaInput name="mangaId" (click)="(mangaInput.value)? lookImageMang(mangaInput.value): nothing()" id="manga" type="number" class="form-control" required>
+                      <option value=""></option>
+                      <option *ngFor="let a of filtered" [value]="a.id">
+                        {{ a.name }}
+                      </option>
+                    </select>
+                    <ul *ngIf="manga.invalid && (manga.dirty || manga.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="manga.errors.required"> Debes ingresar un <strong>manga..</strong> </li>                      
+                    </ul>
+
+                    <label for="url">Url</label>
+                    <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de un anime..." required url>
+                    <ul *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="url.errors.required"> Debes ingresar un <strong>nombre</strong> </li>
+                      <li *ngIf="url.errors.url"> Debes ingresar una <strong>url valida</strong> </li>
+                    </ul>
+                    <label for="caps">Calidad</label>
+                    <input ngModel name="caps" #capsInput #caps="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad del anime..." required min="00" max="10">
+                    <ul *ngIf="caps.invalid && (caps.dirty || caps.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="caps.errors.required"> Debes ingresar una <strong>calidad</strong> </li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!--/.row-->
+            </div>
+            <div class="col-sm-12 col-md-3" *ngIf="(lookImageManga && lookImagePage)">              
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImageManga" alt="Página">                
+              </div>
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImagePage" alt="Página">                
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-left">
+            <button [disabled]="formManga.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div><!--/.col-->
+  </div>
+</div>

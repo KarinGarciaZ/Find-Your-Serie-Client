@@ -20,8 +20,7 @@ export class MovieCreateComponent implements OnInit {
     this.movieService.create( movie )
       .subscribe( res => {
         if ( res ) {
-          this.showSuccess()
-          this.clearInputs()          
+          this.showSuccess()         
         }
       },
       data =>  this.showError(data.error.message),
@@ -35,11 +34,4 @@ export class MovieCreateComponent implements OnInit {
   showError( error ) {
     this.toastr.error(error, '¡Ha numa!')
   }
-
-  clearInputs() {
-    this.name.nativeElement.value = ''
-    this.image.nativeElement.value = ''
-    this.quality.nativeElement.value = undefined
-  }
-
 }

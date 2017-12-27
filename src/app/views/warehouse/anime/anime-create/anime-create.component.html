@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1">
       <div class="card">
-        <form #formAnime="ngForm" (ngSubmit)="onSubmitAnime(formAnime.value)">              
+        <form #formAnime="ngForm" (ngSubmit)="onSubmitAnime(formAnime.value); formAnime.reset()">              
           <div class="card-header">
             <strong>Animes</strong>
             <small>Formulario</small>

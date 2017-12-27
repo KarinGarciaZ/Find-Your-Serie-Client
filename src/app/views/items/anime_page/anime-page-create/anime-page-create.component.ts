@@ -12,10 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AnimePageCreateComponent implements OnInit {
   pages = []
   animes = []
-  @ViewChild('urlInput') url: any;
-  @ViewChild('capsInput') caps: any;
-  @ViewChild('animeInput') anime: any;
-  @ViewChild('pageInput') page: any;
+  filtered = []
+  lookImageAnime: string  
+  lookImagePage: string
 
   constructor(
     private pageService: PageService,
@@ -29,8 +28,32 @@ export class AnimePageCreateComponent implements OnInit {
       })
 
     this.animeService.all()
-    .subscribe( animes => this.animes = animes)
+      .subscribe( animes => this.animes = animes)
   }
+
+  filter( anime ) {
+    this.filtered = this.animes.filter( filtered => filtered.name.includes( anime ))
+  }
+
+  lookImageAnim( id ) {
+    if ( id )
+      this.filtered.forEach(element => {
+        if ( element.id == id ) {
+          this.lookImageAnime = element.image;
+        }      
+      });
+  }
+
+  lookImagePag( id ) {
+    if ( id )
+      this.pages.forEach(element => {
+        if ( element.id == id ) {
+          this.lookImagePage = element.image;
+        }      
+      });
+  }
+
+  nothing() { }
 
   ngOnInit() {
   }
@@ -38,10 +61,8 @@ export class AnimePageCreateComponent implements OnInit {
   onSubmitAnime( anime ) {
     this.animePageService.create( anime )
       .subscribe( res => {
-        if ( res ) {
-          this.showSuccess()
-          this.clearInputs()          
-        }
+        if ( res ) 
+          this.showSuccess()   
       },
       data =>  this.showError(data.error.message),
       () => console.log('Completed'))    
@@ -54,12 +75,4 @@ export class AnimePageCreateComponent implements OnInit {
   showError( error ) {
     this.toastr.error(error, '¡Ha numa!')
   }
-
-  clearInputs() {
-    this.url.nativeElement.value = ''
-    this.page.nativeElement.value = undefined
-    this.anime.nativeElement.value = undefined
-    this.caps.nativeElement.value = undefined
-  }
-
 }

@@ -65,10 +65,8 @@ export class MoviePageCreateComponent implements OnInit {
   onSubmitMovie( movie ) {
     this.moviePageService.create( movie )
       .subscribe( res => {
-        if ( res ) {
-          this.showSuccess()
-          this.clearInputs()          
-        }
+        if ( res ) 
+          this.showSuccess()        
       },
       data =>  this.showError(data.error.message),
       () => console.log('Completed'))    
@@ -81,12 +79,4 @@ export class MoviePageCreateComponent implements OnInit {
   showError( error ) {
     this.toastr.error(error, '¡Ha numa!')
   }
-
-  clearInputs() {
-    this.url.nativeElement.value = ''
-    this.page.nativeElement.value = undefined
-    this.anime.nativeElement.value = undefined
-    this.caps.nativeElement.value = undefined
-  }
-
 }

@@ -21,10 +21,7 @@ export class PageCreateComponent implements OnInit {
 
   onSubmitPage( page ) {
     this.pageService.create( page )
-      .subscribe( res => {
-        this.showSuccess()
-        this.clearInputs()
-      },
+      .subscribe( res => this.showSuccess(),
       err => this.showError(err),
       () => console.log('Done.')
     )
@@ -37,13 +34,4 @@ export class PageCreateComponent implements OnInit {
   showError( err ) {
     this.toastr.error( err.error.message, '¡Chanfle!' )
   }
-
-  clearInputs() {
-    this.name.nativeElement.value = ''    
-    this.url.nativeElement.value = ''
-    this.image.nativeElement.value = ''
-    this.type.nativeElement.value = undefined  
-    this.quality.nativeElement.value = undefined
-  }
-
 }

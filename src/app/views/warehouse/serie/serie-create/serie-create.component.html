@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1">
       <div class="card">
-        <form #formSerie="ngForm" (ngSubmit)="onSubmitSerie(formSerie.value)">              
+        <form #formSerie="ngForm" (ngSubmit)="onSubmitSerie(formSerie.value); formSerie.reset()">              
           <div class="card-header">
             <strong>Series</strong>
             <small>Formulario</small>

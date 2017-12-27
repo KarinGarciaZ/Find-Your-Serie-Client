@@ -1,8 +1,8 @@
-<div class="animated fadeIn">
+<div class="animated fadeIn" *ngIf="movies && pages">
   <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1">
       <div class="card">        
-        <form #formMovie="ngForm" (ngSubmit)="onSubmitMovie(formMovie.value)">              
+        <form #formMovie="ngForm" (ngSubmit)="onSubmitMovie(formMovie.value); formMovie.reset()">              
           <div class="card-header">
             <strong>Películas</strong>
             <small>Formulario</small>
@@ -24,7 +24,7 @@
                       </option>
                     </select>
                     <ul *ngIf="page.invalid && (page.dirty || page.touched)" class="alert alert-danger" style="margin-top: .5em">
-                      <li *ngIf="page.errors.required"> Debes ingresar una <strong>página.</strong> </li>                      
+                      <li *ngIf="page.errors.required"> Debes ingresar una <strong>pagina.</strong> </li>                      
                     </ul>
 
                     <label for="movie">Película</label>
@@ -39,13 +39,13 @@
                     </ul>
 
                     <label for="url">Url</label>
-                    <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de un anime..." required url>
+                    <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de una pelicula..." required url>
                     <ul *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="url.errors.required"> Debes ingresar un <strong>nombre</strong> </li>
                       <li *ngIf="url.errors.url"> Debes ingresar una <strong>url valida</strong> </li>
                     </ul>
                     <label for="caps">Calidad</label>
-                    <input ngModel name="caps" #capsInput #caps="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad del anime..." required min="00" max="10">
+                    <input ngModel name="caps" #capsInput #caps="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad de la pelicula..." required min="00" max="10">
                     <ul *ngIf="caps.invalid && (caps.dirty || caps.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="caps.errors.required"> Debes ingresar una <strong>calidad</strong> </li>
                     </ul>

@@ -1,33 +1,42 @@
-<div class="animated fadeIn">
+<div class="animated fadeIn" *ngIf="animes && pages">
   <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1">
       <div class="card">
-        <form #formAnime="ngForm" (ngSubmit)="onSubmitAnime(formAnime.value)">              
+        <form #formAnime="ngForm" (ngSubmit)="onSubmitAnime(formAnime.value); formAnime.reset()">              
           <div class="card-header">
             <strong>Animes</strong>
             <small>Formulario</small>
           </div>
           <div class="row card-body">
             <div class="col-sm-12 col-md-7">
+              <p>
+                <input #query (keyup)="filter(query.value)" class="form-control" type="text" placeholder="Buscar anime...">
+              </p>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
 
                     <label for="page">Página</label>
-                    <select ngModel #page="ngModel" #pageInput name="pageId" id="page" type="number" class="form-control" required>
+                    <select ngModel #page="ngModel" #pageInput name="pageId" (click)="(pageInput.value)? lookImagePag(pageInput.value): nothing()" id="page" type="number" class="form-control" required>
                       <option value=""></option>
                       <option *ngFor="let p of pages" [value]="p.id">
                         {{ p.name }}
                       </option>
                     </select>
+                    <ul *ngIf="page.invalid && (page.dirty || page.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="page.errors.required"> Debes ingresar una  <strong>pagina.</strong> </li>                      
+                    </ul>
 
                     <label for="anime">Anime</label>
-                    <select ngModel #anime="ngModel" #animeInput name="animeId" id="anime" type="number" class="form-control" required>
+                    <select ngModel #anime="ngModel" #animeInput name="animeId" (click)="(animeInput.value)? lookImageAnim(animeInput.value): nothing()" id="anime" type="number" class="form-control" required>
                       <option value=""></option>
-                      <option *ngFor="let a of animes" [value]="a.id">
+                      <option *ngFor="let a of filtered" [value]="a.id">
                         {{ a.name }}
                       </option>
                     </select>
+                    <ul *ngIf="anime.invalid && (anime.dirty || anime.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="anime.errors.required"> Debes ingresar un <strong>anime..</strong> </li>                      
+                    </ul>
 
                     <label for="url">Url</label>
                     <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de un anime..." required url>
@@ -44,19 +53,18 @@
                 </div>
               </div><!--/.row-->
             </div>
-            <!-- <div class="col-sm-12 col-md-3">
-              <div *ngIf="name.value" class="card" style="height: 18rem; width: 12rem">
-                <img class="card-img-top" [src]="image.value" *ngIf="image.value" alt="Página">
-                <div class="card-body">
-                  <h4 class="card-title">{{ name.value }}</h4>
-                </div>
+            <div class="col-sm-12 col-md-3" *ngIf="(lookImageAnime && lookImagePage)">              
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImageAnime" alt="Página">                
               </div>
-            </div>             -->
+              <div class="card" style="height: 10rem; width: 12rem">
+                <img class="card-img-top" [src]="lookImagePage" alt="Página">                
+              </div>
+            </div>
           </div>
           <div class="card-footer text-left">
             <button [disabled]="formAnime.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>
           </div>
-
         </form>
       </div>
     </div><!--/.col-->

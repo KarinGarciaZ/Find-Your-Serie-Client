@@ -12,6 +12,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class SeriePageCreateComponent implements OnInit {
   pages = []
   series = []
+  filtered = []
+  lookImageSerie: string  
+  lookImagePage: string
   @ViewChild('urlInput') url: any;
   @ViewChild('capsInput') caps: any;
   @ViewChild('serieInput') serie: any;
@@ -32,16 +35,38 @@ export class SeriePageCreateComponent implements OnInit {
     .subscribe( series => this.series = series)
   }
 
+  filter( serie ) {
+    this.filtered = this.series.filter( filtered => filtered.name.includes( serie ))
+  }
+
+  lookImageSeri( id ) {
+    if ( id )
+      this.filtered.forEach(element => {
+        if ( element.id == id ) {
+          this.lookImageSerie = element.image;
+        }      
+      });
+  }
+
+  lookImagePag( id ) {
+    if ( id )
+      this.pages.forEach(element => {
+        if ( element.id == id ) {
+          this.lookImagePage = element.image;
+        }      
+      });
+  }
+
+  nothing() { }
+
   ngOnInit() {
   }
 
   onSubmitSerie( serie ) {
     this.seriePageService.create( serie )
       .subscribe( res => {
-        if ( res ) {
+        if ( res )
           this.showSuccess()
-          this.clearInputs()          
-        }
       },
       data =>  this.showError(data.error.message),
       () => console.log('Completed'))    
@@ -54,12 +79,4 @@ export class SeriePageCreateComponent implements OnInit {
   showError( error ) {
     this.toastr.error(error, '¡Ha numa!')
   }
-
-  clearInputs() {
-    this.url.nativeElement.value = ''
-    this.page.nativeElement.value = undefined
-    this.serie.nativeElement.value = undefined
-    this.caps.nativeElement.value = undefined
-  }
-
 }
