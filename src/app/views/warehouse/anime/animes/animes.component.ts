@@ -1,3 +1,4 @@
+import { AnimeService } from 'app/services/anime.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./animes.component.scss']
 })
 export class AnimesComponent implements OnInit {
+  public animes: any;
 
-  constructor() { }
+  constructor( animeService: AnimeService ) {
+    animeService.all()
+      .subscribe( res => this.animes = res )
+   }
 
   ngOnInit() {
   }

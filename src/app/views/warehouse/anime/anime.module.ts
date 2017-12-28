@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AnimeRoutingModule } from 'app/views/warehouse/anime/anime.routing';
 import { AnimesComponent } from './animes/animes.component';
@@ -15,7 +16,8 @@ import { AnimeComponent } from './anime.component';
     AnimeRoutingModule,
     ChartsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxDatatableModule
   ],
   declarations: [
     AnimeComponent,
