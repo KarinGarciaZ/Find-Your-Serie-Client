@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./page-edit.component.scss']
 })
 export class PageEditComponent implements OnInit {
-  id
-  page: Page
+  public id: any;
+  public page: Page;
 
   constructor(
     private toastr: ToastrService,

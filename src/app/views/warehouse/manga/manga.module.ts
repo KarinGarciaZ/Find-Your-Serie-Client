@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { MangaCreateComponent } from 'app/views/warehouse/manga/manga-create/manga-create.component';
 import { MangaEditComponent } from 'app/views/warehouse/manga/manga-edit/manga-edit.component';
@@ -15,7 +16,8 @@ import { MangaRoutingModule } from './manga.routing';
     ChartsModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   declarations: [
     MangaComponent,
