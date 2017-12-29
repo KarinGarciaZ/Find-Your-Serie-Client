@@ -1,3 +1,42 @@
-<p>
-  movies works!
-</p>
+<div class="col-sm-12">
+  <div class="container animated fadeIn"> 
+      <input type='text' #input class="input" placeholder='Buscar película...' (keyup)='updateFilter(input.value)'/> 
+    <ngx-datatable
+      #table
+      style="height: 350px"
+      class='material expandable'
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [rowHeight]="50"
+      [footerHeight]="50"
+      [scrollbarV]="true"
+      [scrollbarH]="true"
+      [rows]='movies'>
+      
+      <ngx-datatable-column [minWidth]="80" name="ID" prop="id" width="80">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+  
+      <ngx-datatable-column [minWidth]="200" name="Nombre" prop="name" width="200">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+  
+      <ngx-datatable-column [minWidth]="80" name="Calidad" prop="quality" width="80">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column [minWidth]="70" name="" prop="id" width="70">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            <button class="btn btn-lg btn-link" [routerLink]="['../edit/', value]">Editar</button>
+        </ng-template>
+      </ngx-datatable-column>
+  
+    </ngx-datatable>
+  </div>
+</div>

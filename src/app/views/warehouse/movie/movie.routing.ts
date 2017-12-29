@@ -15,7 +15,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: MovieEditComponent,
     data: {
       title: 'Editar Película'
