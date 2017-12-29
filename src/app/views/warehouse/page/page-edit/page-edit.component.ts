@@ -40,6 +40,7 @@ export class PageEditComponent implements OnInit {
   }
 
   showSuccess() {
+    this.router.navigate(['/warehouse/page/all']);
     this.toastr.success('Se editó exitosamente', '¡Registro editado!')
   }
 

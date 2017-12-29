@@ -23,12 +23,29 @@ export class MangaEditComponent implements OnInit {
       this.id = params['id']
       if ( this.id ) {
         this.mangaService.findById( this.id )
-          .subscribe( manga => console.log('manga: ', manga))     
+          .subscribe( manga => this.manga = manga)     
       }
     })
    }
 
   ngOnInit() {
+  }
+
+  onSubmitManga() {
+    this.mangaService.update( this.manga )
+      .subscribe( res => this.showSuccess(),
+      err => this.showError(err),
+      () => console.log('Done.')
+    )
+  }
+
+  showSuccess() {
+    this.router.navigate(['/warehouse/manga/all']);
+    this.toastr.success('Se editó exitosamente', '¡Registro editado!')
+  }
+
+  showError( err ) {
+    this.toastr.error( err.error.message, '¡Chanfle!' )
   }
 
 }
