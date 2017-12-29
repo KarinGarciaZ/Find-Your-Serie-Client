@@ -35,7 +35,6 @@ export class RequestService {
   }
 
   public update( obj ): Observable<any> {
-    console.log('obj: ', obj);
     return this.http.put(`${this.endPoint}/${obj.id}`, obj, { headers: this.headers })
       .map( res => res.json() || {} )
       .catch( this.handleError );
