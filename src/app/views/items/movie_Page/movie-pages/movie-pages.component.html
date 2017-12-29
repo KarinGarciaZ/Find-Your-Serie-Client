@@ -1,3 +1,48 @@
-<p>
-  movie-pages works!
-</p>
+<div class="col-sm-12">
+  <div class="container animated fadeIn"> 
+      <input type='text' #input class="input" placeholder='Buscar manga...' (keyup)='updateFilter(input.value)'/> 
+    <ngx-datatable
+      #table
+      style="height: 350px"
+      class='material expandable'
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [rowHeight]="50"
+      [footerHeight]="50"
+      [scrollbarV]="true"
+      [scrollbarH]="true"
+      [rows]='movies'>
+      
+      <ngx-datatable-column [minWidth]="150" name="Película" prop="movieId" width="150">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column [minWidth]="150" name="Página" prop="pageId" width="150">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+  
+      <ngx-datatable-column [minWidth]="80" name="Capítulos" prop="caps" width="80">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column [minWidth]="70" name="Ir al sitio" prop="url" width="70">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <a class="btn btn-lg btn-link" href="{{value}}">Ir al sitio</a>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column [minWidth]="70" name="" prop="id" width="70">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            <button class="btn btn-lg btn-link" [routerLink]="['../edit/', value]">Editar</button>
+        </ng-template>
+      </ngx-datatable-column>
+  
+    </ngx-datatable>
+  </div>
+</div>
