@@ -1,5 +1,6 @@
 import { AnimeService } from 'app/services/anime.service';
 import { Component, OnInit } from '@angular/core';
+import { DatatableComponent } from '@swimlane/ngx-datatable/src/components/datatable.component';
 
 @Component({
   selector: 'app-animes',
@@ -8,13 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimesComponent implements OnInit {
   public animes: any;
+  public filtered: any;
 
-  constructor( animeService: AnimeService ) {
-    animeService.all()
-      .subscribe( res => this.animes = res )
+  constructor( private animeService: AnimeService ) {
+    this.getAnimes()
    }
 
   ngOnInit() {
+  }
+
+  getAnimes() {
+    this.animeService.all()
+      .subscribe( res => this.animes = this.filtered = res )
+  }
+
+  updateFilter( input ) {
+    this.animes = this.filtered.filter( filter => filter.name.toLowerCase().includes(input.toLowerCase()))
   }
 
 }
