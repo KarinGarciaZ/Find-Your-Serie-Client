@@ -40,6 +40,12 @@ export class RequestService {
       .catch( this.handleError );
   }
 
+  public getPage( item ): Observable<any> {
+    return this.http.get(`${this.endPoint}?filter[include]=page&filter[include]=${item}`)
+      .map( res => res.json() || {} )
+      .catch( this.handleError );
+  }
+
   private handleError(error: Response) {
     return Observable.throw(error.json()|| 'Server error')
   }

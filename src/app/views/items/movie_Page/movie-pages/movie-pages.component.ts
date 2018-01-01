@@ -11,19 +11,21 @@ export class MoviePagesComponent implements OnInit {
   public filtered: any;
 
   constructor( private moviePageService: MoviePageService ) {
-    this.getMovies()
+    this.getMovies()    
    }
 
   ngOnInit() {
   }
 
   getMovies() {
-    this.moviePageService.all()
-      .subscribe( movies => this.movies = this.filtered = movies )
+    this.moviePageService.getPage( 'movie' )
+      .subscribe( movies => {
+        this.movies = this.filtered = movies
+      })
   }
 
   updateFilter(input) {
-    this.movies = this.filtered.filter( filter => filter.name.toLowerCase().includes(input.toLowerCase()))
+    this.movies = this.filtered.filter( filter => filter.movie.name.toLowerCase().includes(input.toLowerCase()))
   }
 
 }
