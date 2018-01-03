@@ -15,7 +15,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: MoviePageEditComponent,
     data: {
       title: 'Editar Anime'

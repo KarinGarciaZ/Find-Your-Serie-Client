@@ -10,11 +10,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./movie-page-create.component.scss']
 })
 export class MoviePageCreateComponent implements OnInit {
-  pages = []
-  movies = []
-  filtered = []
-  lookImageMovie: string  
-  lookImagePage: string
+  public pages = []
+  public movies = []
+  public filtered = []
+  public lookImageMovie: string  
+  public lookImagePage: string
 
   constructor(
     private pageService: PageService,
@@ -28,11 +28,11 @@ export class MoviePageCreateComponent implements OnInit {
       })
 
     this.movieService.all()
-    .subscribe( movies => this.movies = movies)
+      .subscribe( movies => this.movies = this.filtered = movies)
   }
 
   filter( movie ) {
-    this.filtered = this.movies.filter( filtered => filtered.name.toLowerCase().includes( movie.toLowerCase() ))
+    this.movies = this.filtered.filter( filtered => filtered.name.toLowerCase().includes( movie.toLowerCase() ))
   }
 
   lookImageMovi( id ) {

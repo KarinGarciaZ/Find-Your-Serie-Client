@@ -30,7 +30,7 @@
                     <label for="movie">Película</label>
                     <select ngModel #movie="ngModel" #movieInput name="movieId" (click)="(movieInput.value)? lookImageMovi(movieInput.value): nothing()" id="movie" type="number" class="form-control" required>
                       <option value=""></option>
-                      <option *ngFor="let movie of filtered" [value]="movie.id">
+                      <option *ngFor="let movie of movies" [value]="movie.id">
                         {{ movie.name }}
                       </option>
                     </select>

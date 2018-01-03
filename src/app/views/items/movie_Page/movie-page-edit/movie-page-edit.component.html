@@ -1,3 +1,53 @@
-<p>
-  movie-page-edit works!
-</p>
+<div class="animated fadeIn" *ngIf="pages && moviePage">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1">
+      <div class="card">        
+        <form #formMovie="ngForm" (ngSubmit)="onSubmitMovie(); formMovie.reset()">              
+          <div class="card-header">
+            <strong>Películas</strong>
+            <small>Formulario</small>
+          </div>
+          <div class="row card-body">
+            <div class="col-sm-12 col-md-8">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+
+                    <label for="page">Página</label>
+                    <select [(ngModel)]="moviePage.pageId" name="pageId" #pageInput #pageInput="ngModel" (click)="(pageInput.value)? lookImagePag(pageInput.value): nothing()" class="form-control" required>
+                      <option value=""></option>
+                      <option *ngFor="let p of pages" [value]="p.id">
+                        {{ p.name }}
+                      </option>
+                    </select>
+                    <!-- <ul *ngIf="page.invalid && (page.dirty || page.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="page.errors.required"> Debes ingresar una <strong>pagina.</strong> </li>                      
+                    </ul> -->                    
+
+                    <label for="url">Url</label>
+                    <input [(ngModel)]="moviePage.url" name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese el nombre de una pelicula..." required url>
+                    <ul *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="url.errors.required"> Debes ingresar un <strong>nombre</strong> </li>
+                      <li *ngIf="url.errors.url"> Debes ingresar una <strong>url valida</strong> </li>
+                    </ul>
+                  </div>
+                </div>
+              </div><!--/.row-->
+            </div>
+            <div class="col-sm-12 col-md-3" *ngIf="movie">              
+              <div class="card" style="height: 13rem; width: 13rem">
+                <img class="card-img-top" [src]="movie.image" alt="Página"> 
+                <div class="card-body">
+                  <h5 class="card-title">{{ movie.name }}</h5>
+                </div>               
+              </div>
+            </div>            
+          </div>
+          <div class="card-footer text-left">
+            <button [disabled]="formMovie.invalid" type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div><!--/.col-->
+  </div>
+</div>
