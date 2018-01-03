@@ -24,20 +24,14 @@
           <strong>{{ value }}</strong>
         </ng-template>
       </ngx-datatable-column>
-  
-      <ngx-datatable-column [minWidth]="80" name="Capítulos" prop="caps" width="80">
+
+      <ngx-datatable-column [minWidth]="70" [maxWidth]="100" name="" prop="url" width="70">
         <ng-template let-value="value" ngx-datatable-cell-template>
-          <strong>{{value}}</strong>
+          <a class="btn btn-outline-primary" href="{{value}}">Ir al sitio</a>
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column [minWidth]="70" name="Ir al sitio" prop="url" width="70">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          <a class="btn btn-lg btn-link" href="{{value}}">Ir al sitio</a>
-        </ng-template>
-      </ngx-datatable-column>
-
-      <ngx-datatable-column [minWidth]="70" name="" prop="id" width="70">
+      <ngx-datatable-column [minWidth]="70" [maxWidth]="100" name="" prop="id" width="70">
         <ng-template let-value="value" ngx-datatable-cell-template>
             <button class="btn btn-lg btn-link" [routerLink]="['../edit/', value]">Editar</button>
         </ng-template>
