@@ -3,5 +3,6 @@ export interface Page {
   image: string,
   quality: number,
   url: string,
-  type: string
+  type: string,
+  id: number
 }
