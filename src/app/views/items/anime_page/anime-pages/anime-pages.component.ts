@@ -1,3 +1,4 @@
+import { AnimePageService } from 'app/services/anime-page.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./anime-pages.component.scss']
 })
 export class AnimePagesComponent implements OnInit {
+  public animes: any;
+  public filtered: any;
 
-  constructor() { }
+  constructor( private animePageService:AnimePageService ) { }
 
   ngOnInit() {
+    this.getAnimes()
+  }
+
+  getAnimes() {
+    this.animePageService.getPage( 'anime' )
+      .subscribe( animes => {
+        this.animes = this.filtered = animes
+      })
+  }
+
+  updateFilter(input) {
+    this.animes = this.filtered.filter( filter => filter.anime.name.toLowerCase().includes(input.toLowerCase()))
   }
 
 }
