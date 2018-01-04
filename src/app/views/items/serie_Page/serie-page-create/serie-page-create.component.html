@@ -44,8 +44,8 @@
                       <li *ngIf="url.errors.required"> Debes ingresar un <strong>nombre</strong> </li>
                       <li *ngIf="url.errors.url"> Debes ingresar una <strong>url valida</strong> </li>
                     </ul>
-                    <label for="caps">Calidad</label>
-                    <input ngModel name="caps" #capsInput #caps="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad del serie..." required min="00" max="10">
+                    <label for="caps">Capitulos</label>
+                    <input ngModel name="caps" #capsInput #caps="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad del serie..." required min="00">
                     <ul *ngIf="caps.invalid && (caps.dirty || caps.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="caps.errors.required"> Debes ingresar una <strong>calidad</strong> </li>
                     </ul>

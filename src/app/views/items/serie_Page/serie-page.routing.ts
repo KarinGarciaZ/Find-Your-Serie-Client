@@ -16,7 +16,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: SeriePageEditComponent,
     data: {
       title: 'Editar Serie'
