@@ -22,13 +22,15 @@
                     <input ngModel name="quality" #qualityInput #quality="ngModel" type="number" class="form-control" placeholder="Ingrese la calidad del pagina..." required min="00" max="10">
                     <ul *ngIf="quality.invalid && (quality.dirty || quality.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="quality.errors.required"> Debes ingresar una <strong>calidad</strong> </li>
-                    </ul>                    
+                    </ul>   
+
                     <label for="url">Url</label>
                     <input ngModel name="url" #urlInput #url="ngModel" type="text" class="form-control" placeholder="Ingrese la dirección de la url..." required minlength="5">
                     <ul *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="url.errors.minlength"> Debes ingresar una dirección como mínimo de <strong> {{ url.errors.minlength.requiredLength }} </strong> caracteres </li>
                       <li *ngIf="url.errors.required"> Debes ingresar una <strong>url</strong> </li>
                     </ul>
+
                     <label for="type">Tipo</label>
                     <select ngModel name="type" #typeSelect #type="ngModel" type="text" class="form-control" required>
                       <option value=""></option>
@@ -40,6 +42,17 @@
                     <ul *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger" style="margin-top: .5em">
                       <li *ngIf="type.errors.required"> Debes ingresar una <strong>Tipo</strong> </li>
                     </ul>
+
+                    <label for="language">Idioma</label>
+                    <select ngModel name="language" #languageSelect #language="ngModel" class="form-control" required>
+                      <option value="Spanish">Español</option>
+                      <option value="English">Inglés</option>
+                      
+                    </select>
+                    <ul *ngIf="language.invalid && (language.dirty || language.touched)" class="alert alert-danger" style="margin-top: .5em">
+                      <li *ngIf="language.errors.required"> Debes ingresar una <strong>Tipo</strong> </li>
+                    </ul>
+
                     <label for="image">Imagen</label>
                     <input ngModel name="image" #imageInput #image="ngModel" type="text" class="form-control" placeholder="Ingrese la dirección de la imagen..." required minlength="5">
                     <ul *ngIf="image.invalid && (image.dirty || image.touched)" class="alert alert-danger" style="margin-top: .5em">
