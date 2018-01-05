@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MovieService } from 'app/services/movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Movie } from 'app/models/movie';
 
 @Component({
   selector: 'app-movie-page-edit',
