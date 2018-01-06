@@ -31,9 +31,10 @@
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column [minWidth]="70" name="" prop="id" width="70">
+      <ngx-datatable-column [minWidth]="130" name="" prop="id" width="130">
         <ng-template let-value="value" ngx-datatable-cell-template>
-            <button class="btn btn-lg btn-link" [routerLink]="['../edit/', value]">Editar</button>
+            <button class="btn btn-primary" [routerLink]="['../edit/', value]">Editar</button>
+            <button class="btn btn-danger" (click)="delete( value )">Borrar</button>
         </ng-template>
       </ngx-datatable-column>
   

@@ -27,4 +27,12 @@ export class AnimePagesComponent implements OnInit {
     this.animes = this.filtered.filter( filter => filter.anime.name.toLowerCase().includes(input.toLowerCase()))
   }
 
+  delete( id ) {
+    if ( confirm('¿Está seguro de que desea eliminar este anime?')) {
+      this.animePageService.delete( id ).subscribe( res =>{
+        window.location.reload()
+      })
+    }
+  }
+
 }

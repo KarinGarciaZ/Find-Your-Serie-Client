@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let page of filtered">
+          <tr *ngFor="let page of filtered | async">
             <td>{{ page.id }}</td>
             <td>{{ page.name }}</td>
             <td>{{ page.url }}</td>
@@ -28,8 +28,8 @@
             <td>{{ page.type }}</td>
             <td>{{ page.language }}</td>
             <td>              
-              <a class="btn btn-outline-primary" [routerLink]="['../edit/', page.id]">Editar</a>
-              <a class="btn btn-outline-danger">Borrar</a>
+              <a class="btn btn-primary" [routerLink]="['../edit/', page.id]">Editar</a>
+              <a class="btn btn-danger" (click)="delete( page.id )">Borrar</a>
             </td>
           </tr>          
         </tbody>

@@ -26,4 +26,12 @@ export class MoviesComponent implements OnInit {
     this.movies = this.filtered.filter( filter => filter.name.toLowerCase().includes(input.toLowerCase()))
   }
 
+  delete( id ) {
+    if ( confirm('¿Está seguro de que desea eliminar este anime?')) {
+      this.movieService.delete( id ).subscribe( res =>{
+        window.location.reload()
+      })
+    }
+  }
+
 }

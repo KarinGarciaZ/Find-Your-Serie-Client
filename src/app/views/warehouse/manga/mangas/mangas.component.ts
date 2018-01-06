@@ -27,4 +27,12 @@ export class MangasComponent implements OnInit {
     this.mangas = this.filtered.filter( filter => filter.name.toLowerCase().includes(input.toLowerCase()))
   }
 
+  delete( id ) {
+    if ( confirm('¿Está seguro de que desea eliminar este anime?')) {
+      this.mangaService.delete( id ).subscribe( res =>{
+        window.location.reload()
+      })
+    }
+  }
+
 }

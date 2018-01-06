@@ -26,4 +26,12 @@ export class SeriesComponent implements OnInit {
     this.series = this.filtered.filter( filter => filter.name.toLowerCase().includes(input.toLowerCase()))
   }
 
+  delete( id ) {
+    if ( confirm('¿Está seguro de que desea eliminar este anime?')) {
+      this.serieService.delete( id ).subscribe( res =>{
+        window.location.reload()
+      })
+    }
+  }
+
 }
